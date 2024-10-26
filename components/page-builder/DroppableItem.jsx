@@ -6,7 +6,6 @@ import { useDrop } from "react-dnd";
 
 const DroppableItem = () => {
   const [canvasItems, setCanvasItems] = useState([]);
-  console.log("canvasItems: ", canvasItems);
 
   const [{ isOver }, drop] = useDrop({
     accept: itemTypes.COMPONENT,
@@ -23,8 +22,8 @@ const DroppableItem = () => {
       ref={drop}
       className={isOver ? "border-2 border-green-400 p-3" : "w-full h-screen"}
     >
-      {canvasItems.map((item) => (
-        <div key={item.id}>{<item.component />}</div>
+      {canvasItems.map((item, index) => (
+        <div key={item.id + index}>{<item.component />}</div>
       ))}
     </div>
   );
