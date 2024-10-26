@@ -24,7 +24,11 @@ module.exports = {
         "2xl": "1rem",
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        bgColor: "#f4f5f7",
+      },
+    },
   },
   plugins: [],
 };
