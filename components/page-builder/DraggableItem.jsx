@@ -1,27 +1,31 @@
 "use client";
 
 import { useDrag } from "react-dnd";
-import { Blogs, OptimizeImage } from "@/helpers/ui";
+import { OptimizeImage } from "@/helpers/ui";
 import { itemTypes } from "@/utils";
 
-const DraggableItem = () => {
+const DraggableItem = ({ item }) => {
   const [{ isDragging }, drag] = useDrag({
     type: itemTypes.COMPONENT,
+    item: { ...item },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   });
   return (
     <>
-      <div
+      <section
         ref={drag}
-        className={`${isDragging ? "opacity-50" : "opacity-100"}`}
+        className={`${
+          isDragging ? "opacity-50" : "opacity-100"
+        } cursor-grab shadow-sm mb-5 `}
       >
-        <OptimizeImage imgURL="/assets/blog-01.webp" altLabel="Blog 1" />
-        <div className="hidden">
-          <Blogs />
-        </div>
-      </div>
+        <OptimizeImage
+          imgURL={item.thumbnail}
+          altLabel="Blog 1"
+          borderRadius="10px"
+        />
+      </section>
     </>
   );
 };
