@@ -1,5 +1,3 @@
-"use client";
-
 import { DndProviderWrapper } from "@/providers/DndProviderWrapper";
 import PageBuilder from "@/components/page-builder";
 
