@@ -1,3 +1,5 @@
+"use client";
+
 export default function Blogs() {
   return (
     <section className="text-gray-600 body-font overflow-hidden">
