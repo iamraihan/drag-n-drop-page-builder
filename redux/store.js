@@ -1,8 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./slices/dummyCounter";
+import builderReducer from "./slices/builderSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    pageBuilder: builderReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+  devTools: process.env.NODE_ENV === "development",
 });
