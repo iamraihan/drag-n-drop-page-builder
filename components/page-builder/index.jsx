@@ -3,6 +3,7 @@
 import DraggableItem from "@/components/page-builder/DraggableItem";
 import DroppableItem from "@/components/page-builder/DroppableItem";
 import { Blogs, CTA, FeaturesOne, TextEditor } from "@/helpers/ui";
+import { useSelector } from "react-redux";
 
 const PageBuilder = () => {
   const items = [
@@ -10,6 +11,8 @@ const PageBuilder = () => {
     { id: 2, component: CTA, thumbnail: "/assets/blog-02.webp" },
     { id: 3, component: FeaturesOne, thumbnail: "/assets/features-01.webp" },
   ];
+
+  const { canvasItems } = useSelector((state) => state.pageBuilder);
 
   return (
     <div className="container mx-auto grid grid-cols-10 gap-3 mt-3">
@@ -22,7 +25,7 @@ const PageBuilder = () => {
         <DroppableItem />
       </div>
       <div className="col-span-2 px-3">
-        <TextEditor />
+        {canvasItems.length > 0 && <TextEditor />}
       </div>
     </div>
   );

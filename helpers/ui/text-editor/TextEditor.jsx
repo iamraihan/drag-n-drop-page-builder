@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const TextEditor = () => {
   const { selectedItemStyle } = useSelector((state) => state.uiData);
-
   const dispatch = useDispatch();
   const handleFontSizeChange = (event) => {
     const sizeClass = event.target.value;
