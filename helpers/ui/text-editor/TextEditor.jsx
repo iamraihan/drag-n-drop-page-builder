@@ -6,7 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 const TextEditor = () => {
   const { selectedItemStyle } = useSelector((state) => state.uiData);
   const dispatch = useDispatch();
+
   const handleFontSizeChange = (event) => {
+    if (
+      !selectedItemStyle ||
+      !selectedItemStyle.itemKey ||
+      !selectedItemStyle.styles
+    ) {
+      alert("Please select an item first");
+      return;
+    }
     const sizeClass = event.target.value;
 
     const newStyles = {
@@ -26,11 +35,18 @@ const TextEditor = () => {
   };
 
   const handleColorChange = (event) => {
+    if (
+      !selectedItemStyle ||
+      !selectedItemStyle.itemKey ||
+      !selectedItemStyle.styles
+    ) {
+      alert("Please select an item first");
+      return;
+    }
     const colorClass = event.target.value;
-
     const newStyles = {
       [selectedItemStyle.itemKey]: {
-        fontSize: selectedItemStyle.styles.fontSize,
+        fontSize: selectedItemStyle.styles.fontSize || "",
         color: colorClass,
       },
     };
