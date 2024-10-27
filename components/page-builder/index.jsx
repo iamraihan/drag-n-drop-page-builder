@@ -2,7 +2,7 @@
 
 import DraggableItem from "@/components/page-builder/DraggableItem";
 import DroppableItem from "@/components/page-builder/DroppableItem";
-import { Blogs, CTA, FeaturesOne } from "@/helpers/ui";
+import { Blogs, CTA, FeaturesOne, TextEditor } from "@/helpers/ui";
 
 const PageBuilder = () => {
   const items = [
@@ -21,7 +21,9 @@ const PageBuilder = () => {
       <div className="col-span-5">
         <DroppableItem />
       </div>
-      <div className="col-span-2">Actions</div>
+      <div className="col-span-2 px-3">
+        <TextEditor />
+      </div>
     </div>
   );
 };

@@ -1,43 +1,50 @@
 "use client";
 
+import { setSelectedItemStyle } from "@/redux/slices/uiDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 export default function Blogs() {
-  const data = [
-    {
-      id: 1,
-      category: "Category",
-      title: `Roof party normcore before they sold out, cornhole vape
-`,
-      description: `Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid fixie chambray 90's, slow-carb etsy turmeric. Cray pug you probably haven't heard of them hexagon kickstarter craft beer pork chic.
+  const { blogOne } = useSelector((state) => state.uiData);
+  const dispatch = useDispatch();
+  const collectionName = "blogOne";
 
-`,
-      author: "Holden Caulfield",
-      designation: "UI Developer ",
-    },
-    {
-      id: 2,
-      category: "Category",
-      title: `Pinterest DIY dreamcatcher gentrify single-origin coffee
-`,
-      description: `Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo hoodie brunch trust fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid fixie chambray 90's, slow-carb etsy turmeric.
-
-`,
-      author: "Alper Kamu",
-      designation: "Designer",
-    },
-  ];
   return (
     <div className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-12">
-          {data.map((item) => (
+          {blogOne.map((item) => (
             <div
               className="p-12 md:w-1/2 flex flex-col items-start"
               key={item.id}
             >
-              <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest uppercase">
+              <span
+                className={`inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 ${item.styles.category.fontSize} font-medium tracking-widest uppercase`}
+                onClick={() =>
+                  dispatch(
+                    setSelectedItemStyle({
+                      collectionName,
+                      id: item.id,
+                      styles: item.styles.category,
+                      itemKey: "category",
+                    })
+                  )
+                }
+              >
                 {item.category}
               </span>
-              <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+              <h2
+                className={`sm:${item.styles.title.fontSize} text-2xl title-font font-medium text-gray-900 mt-4 mb-4`}
+                onClick={() =>
+                  dispatch(
+                    setSelectedItemStyle({
+                      collectionName,
+                      id: item.id,
+                      styles: item.styles.category,
+                      itemKey: "title",
+                    })
+                  )
+                }
+              >
                 {item.title}
               </h2>
               <p className="leading-relaxed mb-8">{item.description}</p>
@@ -92,10 +99,34 @@ export default function Blogs() {
               </div>
               <a href="#" className="inline-flex items-center">
                 <span className="flex-grow flex flex-col pl-4">
-                  <span className="title-font font-medium text-gray-900">
+                  <span
+                    className="title-font font-medium text-gray-900"
+                    onClick={() =>
+                      dispatch(
+                        setSelectedItemStyle({
+                          collectionName,
+                          id: item.id,
+                          styles: item.styles.category,
+                          itemKey: "author",
+                        })
+                      )
+                    }
+                  >
                     {item.author}
                   </span>
-                  <span className="text-gray-400 text-xs tracking-widest mt-0.5 uppercase">
+                  <span
+                    className="text-gray-400 text-xs tracking-widest mt-0.5 uppercase"
+                    onClick={() =>
+                      dispatch(
+                        setSelectedItemStyle({
+                          collectionName,
+                          id: item.id,
+                          styles: item.styles.category,
+                          itemKey: "designation",
+                        })
+                      )
+                    }
+                  >
                     {item.designation}
                   </span>
                 </span>
