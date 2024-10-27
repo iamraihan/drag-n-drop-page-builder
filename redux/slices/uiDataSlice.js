@@ -19,7 +19,6 @@ export const uiDataSlice = createSlice({
   initialState,
   reducers: {
     setItemStyles(state, action) {
-      console.log("state: ", state);
       const { collectionName, id, styles } = action.payload;
 
       const selectedItem = state[collectionName]?.find(

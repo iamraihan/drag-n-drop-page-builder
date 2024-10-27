@@ -18,13 +18,17 @@ export default function Blogs() {
               key={item.id}
             >
               <span
-                className={`inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 ${item.styles.category.fontSize} font-medium tracking-widest uppercase`}
+                className={`inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 ${
+                  item?.styles?.category?.fontSize || ""
+                } ${
+                  item?.styles?.category?.color || ""
+                } font-medium tracking-widest uppercase`}
                 onClick={() =>
                   dispatch(
                     setSelectedItemStyle({
                       collectionName,
                       id: item.id,
-                      styles: item.styles.category,
+                      styles: item?.styles?.category || {},
                       itemKey: "category",
                     })
                   )
@@ -32,14 +36,19 @@ export default function Blogs() {
               >
                 {item.category}
               </span>
+
               <h2
-                className={`sm:${item.styles.title.fontSize} text-2xl title-font font-medium text-gray-900 mt-4 mb-4`}
+                className={`sm:${
+                  item?.styles?.title?.fontSize || ""
+                } text-2xl title-font font-medium ${
+                  item?.styles?.title?.color || ""
+                } mt-4 mb-4`}
                 onClick={() =>
                   dispatch(
                     setSelectedItemStyle({
                       collectionName,
                       id: item.id,
-                      styles: item.styles.category,
+                      styles: item?.styles?.title || {},
                       itemKey: "title",
                     })
                   )
@@ -47,7 +56,25 @@ export default function Blogs() {
               >
                 {item.title}
               </h2>
-              <p className="leading-relaxed mb-8">{item.description}</p>
+
+              <p
+                className={`leading-relaxed mb-8 ${
+                  item?.styles?.description?.fontSize || ""
+                } ${item?.styles?.description?.color || ""}`}
+                onClick={() =>
+                  dispatch(
+                    setSelectedItemStyle({
+                      collectionName,
+                      id: item.id,
+                      styles: item?.styles?.description || {},
+                      itemKey: "description",
+                    })
+                  )
+                }
+              >
+                {item.description}
+              </p>
+
               <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
                 <a
                   href="#"
@@ -97,16 +124,19 @@ export default function Blogs() {
                   6
                 </span>
               </div>
+
               <a href="#" className="inline-flex items-center">
                 <span className="flex-grow flex flex-col pl-4">
                   <span
-                    className="title-font font-medium text-gray-900"
+                    className={`title-font font-medium text-gray-900 ${
+                      item?.styles?.author?.fontSize || ""
+                    } ${item?.styles?.author?.color || ""}`}
                     onClick={() =>
                       dispatch(
                         setSelectedItemStyle({
                           collectionName,
                           id: item.id,
-                          styles: item.styles.category,
+                          styles: item?.styles?.author || {},
                           itemKey: "author",
                         })
                       )
@@ -115,13 +145,15 @@ export default function Blogs() {
                     {item.author}
                   </span>
                   <span
-                    className="text-gray-400 text-xs tracking-widest mt-0.5 uppercase"
+                    className={`text-gray-400 tracking-widest mt-0.5 uppercase ${
+                      item?.styles?.designation?.fontSize || ""
+                    } ${item?.styles?.designation?.color || ""}`}
                     onClick={() =>
                       dispatch(
                         setSelectedItemStyle({
                           collectionName,
                           id: item.id,
-                          styles: item.styles.category,
+                          styles: item?.styles?.designation || {},
                           itemKey: "designation",
                         })
                       )
