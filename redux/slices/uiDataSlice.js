@@ -7,6 +7,7 @@ const initialState = {
   blogOne: blog_01,
   ctaOne: cta_01,
   featureOne: feature_01,
+
   selectedItemStyle: {
     collectionName: "blogOne",
     id: 1,
