@@ -3,3 +3,4 @@ export { AppButton } from "@/helpers/ui/button";
 export { CTA } from "@/helpers/ui/cta";
 export { OptimizeImage } from "@/helpers/ui/images";
 export { FeaturesOne } from "@/helpers/ui/features";
+export { TextEditor } from "@/helpers/ui/text-editor";
