@@ -4,9 +4,7 @@ import { setItemStyles } from "@/redux/slices/uiDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const TextEditor = () => {
-  const { selectedText } = useSelector((state) => state.textEditor);
   const { selectedItemStyle } = useSelector((state) => state.uiData);
-  console.log("selectedItemStyle: ", selectedItemStyle);
 
   const dispatch = useDispatch();
   const handleFontSizeChange = (event) => {
@@ -74,7 +72,7 @@ const TextEditor = () => {
         </label>
         <select
           id="Color"
-          onChange={handleFontSizeChange}
+          onChange={handleColorChange}
           className="border border-gray-300 rounded p-2"
           defaultValue="text-black"
         >

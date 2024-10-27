@@ -55,4 +55,75 @@ const blog_01 = [
   },
 ];
 
-export { blog_01 };
+const cta_01 = [
+  {
+    id: 1,
+    title: ` Slow-carb next level shoindxgoitch ethical authentic, scenester
+            sriracha forage.`,
+    button_data: "Button",
+    styles: {
+      title: {
+        fontSize: "text-2xl",
+        color: "text-gray-900",
+      },
+    },
+    styles: {
+      button_data: {
+        fontSize: "text-lg",
+        color: "text-white",
+      },
+    },
+  },
+];
+const feature_01 = [
+  {
+    id: 1,
+    tittle: "Shooting Stars",
+    description: `   Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
+                banh mi pug VHS try-hard ugh iceland kickstarter tumblr
+                live-edge tilde.`,
+    styles: {
+      title: {
+        fontSize: "text-lg",
+        color: "text-gray-900",
+      },
+      description: {
+        fontSize: "text-base",
+        color: "text-gray-800",
+      },
+    },
+  },
+  {
+    id: 2,
+    tittle: "The Catalyzer",
+    description: ` Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.`,
+    styles: {
+      title: {
+        fontSize: "text-lg",
+        color: "text-gray-900",
+      },
+      description: {
+        fontSize: "text-base",
+        color: "text-gray-800",
+      },
+    },
+  },
+  {
+    id: 3,
+    tittle: "Neptune",
+    description: `Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.
+`,
+    styles: {
+      title: {
+        fontSize: "text-lg",
+        color: "text-gray-900",
+      },
+      description: {
+        fontSize: "text-base",
+        color: "text-gray-800",
+      },
+    },
+  },
+];
+export { blog_01, cta_01, feature_01 };
