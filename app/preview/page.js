@@ -1,23 +1,24 @@
 "use client";
 
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { parseItemFromLocalStorage } from "@/utils";
+import { useEffect, useState } from "react";
 
 const PreviewPage = () => {
-  const { canvasItems } = useSelector((state) => state.pageBuilder);
+  const [htmlContents, setHtmlContents] = useState([]);
 
   useEffect(() => {
-    if (canvasItems.length <= 0) {
-      redirect("/");
-    }
-  }, [canvasItems.length]);
+    setHtmlContents(parseItemFromLocalStorage("htmlContents") || []);
+  }, []);
+
   return (
-    <section className="bg-white">
-      {canvasItems.map((item, index) => (
-        <div key={item.id + index}>{<item.component /> || ""}</div>
+    <>
+      {htmlContents.map((html, index) => (
+        <section
+          key={index}
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></section>
       ))}
-    </section>
+    </>
   );
 };
 

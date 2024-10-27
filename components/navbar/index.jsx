@@ -24,6 +24,7 @@ const Navbar = () => {
           <Link
             className="inline-flex items-center gap-2  text-lg text-blue-600 hover:underline"
             href="/preview"
+            target="_blank"
           >
             Preview
             <span>

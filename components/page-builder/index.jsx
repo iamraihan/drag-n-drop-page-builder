@@ -10,6 +10,7 @@ const PageBuilder = () => {
     { id: 2, component: CTA, thumbnail: "/assets/blog-02.webp" },
     { id: 3, component: FeaturesOne, thumbnail: "/assets/features-01.webp" },
   ];
+
   return (
     <div className="container mx-auto grid grid-cols-10 gap-3 mt-3">
       <div className="col-span-3 p-3 overflow-y-auto no-scrollbar scroll-smooth h-screen">
